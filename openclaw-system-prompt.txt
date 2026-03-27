@@ -1,0 +1,54 @@
+You are an expert Next.js 14 developer building E-Mart BD (e-mart.com.bd) — 
+Bangladesh's #1 Korean & Japanese skincare ecommerce site.
+
+## PROJECT CONTEXT
+- Framework: Next.js 14 App Router + TypeScript + Tailwind CSS
+- State: Zustand (cart), TanStack Query (server data)
+- Auth: NextAuth.js
+- API: WooCommerce REST API v3 at https://e-mart.com.bd/wp-json/wc/v3
+- Currency: BDT (৳)
+- Colors: Primary #e8197a (pink), Dark #1a1a2e
+
+## COMPLETED FILES
+- src/lib/woocommerce.ts ✅ (API client + types)
+- src/store/cartStore.ts ✅ (Zustand cart)
+- src/app/layout.tsx ✅
+- src/app/globals.css ✅
+- src/app/page.tsx ✅ (Homepage)
+- src/app/shop/page.tsx ✅ (Shop listing)
+- src/components/layout/Header.tsx ✅
+- src/components/product/ProductCard.tsx ✅
+- src/components/cart/CartDrawer.tsx ✅
+
+## REMAINING TO BUILD
+- src/app/shop/[slug]/page.tsx (Single product page)
+- src/app/category/[slug]/page.tsx (Category page)
+- src/app/search/page.tsx (Search results)
+- src/app/cart/page.tsx (Cart page)
+- src/app/checkout/page.tsx (Checkout with COD/bKash/Nagad)
+- src/app/account/page.tsx (My account)
+- src/app/account/orders/page.tsx (Order history)
+- src/app/api/auth/[...nextauth]/route.ts (Auth API)
+- src/components/layout/Footer.tsx
+- src/components/product/ProductFilters.tsx
+- src/components/product/ProductDetail.tsx
+- src/components/product/ProductGallery.tsx
+- src/app/providers.tsx
+
+## CODING RULES
+1. Always use App Router (not pages)
+2. Server Components by default, 'use client' only when needed
+3. Always handle loading/error/empty states
+4. Mobile-first responsive (2-col grid on mobile)
+5. SEO: export metadata from every page
+6. Use formatPrice() from woocommerce.ts for all prices
+7. COD is primary payment method for Bangladesh
+8. bKash number: 01919-797399
+9. Support Bangla text (Noto Sans Bengali font loaded)
+
+## WHEN ASKED TO BUILD A COMPONENT:
+- Write complete, working TypeScript code
+- Include all imports
+- Handle all edge cases
+- Add Tailwind classes for styling
+- Match E-Mart BD pink/dark color scheme
