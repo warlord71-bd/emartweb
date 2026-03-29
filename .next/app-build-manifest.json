@@ -1,0 +1,145 @@
+{
+  "pages": {
+    "/_not-found/page": [
+      "static/chunks/webpack-c8a3a8ba398149d2.js",
+      "static/chunks/fd9d1056-c5a681b29951672f.js",
+      "static/chunks/117-8b46597f7ffbbb99.js",
+      "static/chunks/main-app-bd28d7e1fc195edc.js",
+      "static/chunks/app/_not-found/page-a60a92c3954239c7.js"
+    ],
+    "/layout": [
+      "static/chunks/webpack-c8a3a8ba398149d2.js",
+      "static/chunks/fd9d1056-c5a681b29951672f.js",
+      "static/chunks/117-8b46597f7ffbbb99.js",
+      "static/chunks/main-app-bd28d7e1fc195edc.js",
+      "static/css/fb4173f87d90b2bc.css",
+      "static/chunks/837-fa69db7ee60047b2.js",
+      "static/chunks/936-6b35b9d8f4fa134d.js",
+      "static/chunks/494-af0151162a582318.js",
+      "static/chunks/app/layout-4243fa55be03c88c.js"
+    ],
+    "/checkout/page": [
+      "static/chunks/webpack-c8a3a8ba398149d2.js",
+      "static/chunks/fd9d1056-c5a681b29951672f.js",
+      "static/chunks/117-8b46597f7ffbbb99.js",
+      "static/chunks/main-app-bd28d7e1fc195edc.js",
+      "static/chunks/837-fa69db7ee60047b2.js",
+      "static/chunks/app/checkout/page-ffe6b3903071f1d5.js"
+    ],
+    "/[slug]/page": [
+      "static/chunks/webpack-c8a3a8ba398149d2.js",
+      "static/chunks/fd9d1056-c5a681b29951672f.js",
+      "static/chunks/117-8b46597f7ffbbb99.js",
+      "static/chunks/main-app-bd28d7e1fc195edc.js",
+      "static/chunks/837-fa69db7ee60047b2.js",
+      "static/chunks/936-6b35b9d8f4fa134d.js",
+      "static/chunks/app/[slug]/page-93e0d7d7c5307514.js"
+    ],
+    "/about-us/page": [
+      "static/chunks/webpack-c8a3a8ba398149d2.js",
+      "static/chunks/fd9d1056-c5a681b29951672f.js",
+      "static/chunks/117-8b46597f7ffbbb99.js",
+      "static/chunks/main-app-bd28d7e1fc195edc.js",
+      "static/chunks/app/about-us/page-ff4413ffbcff7e26.js"
+    ],
+    "/contact/page": [
+      "static/chunks/webpack-c8a3a8ba398149d2.js",
+      "static/chunks/fd9d1056-c5a681b29951672f.js",
+      "static/chunks/117-8b46597f7ffbbb99.js",
+      "static/chunks/main-app-bd28d7e1fc195edc.js",
+      "static/chunks/app/contact/page-a0141886f9eb8632.js"
+    ],
+    "/faq/page": [
+      "static/chunks/webpack-c8a3a8ba398149d2.js",
+      "static/chunks/fd9d1056-c5a681b29951672f.js",
+      "static/chunks/117-8b46597f7ffbbb99.js",
+      "static/chunks/main-app-bd28d7e1fc195edc.js",
+      "static/chunks/app/faq/page-0840047e6d2d74ce.js"
+    ],
+    "/new-arrivals/page": [
+      "static/chunks/webpack-c8a3a8ba398149d2.js",
+      "static/chunks/fd9d1056-c5a681b29951672f.js",
+      "static/chunks/117-8b46597f7ffbbb99.js",
+      "static/chunks/main-app-bd28d7e1fc195edc.js",
+      "static/chunks/837-fa69db7ee60047b2.js",
+      "static/chunks/936-6b35b9d8f4fa134d.js",
+      "static/chunks/631-57f55e4fe7b13400.js",
+      "static/chunks/app/new-arrivals/page-15b5fb385591ab47.js"
+    ],
+    "/page": [
+      "static/chunks/webpack-c8a3a8ba398149d2.js",
+      "static/chunks/fd9d1056-c5a681b29951672f.js",
+      "static/chunks/117-8b46597f7ffbbb99.js",
+      "static/chunks/main-app-bd28d7e1fc195edc.js",
+      "static/chunks/837-fa69db7ee60047b2.js",
+      "static/chunks/936-6b35b9d8f4fa134d.js",
+      "static/chunks/app/page-c717f2b43d393104.js"
+    ],
+    "/privacy-policy/page": [
+      "static/chunks/webpack-c8a3a8ba398149d2.js",
+      "static/chunks/fd9d1056-c5a681b29951672f.js",
+      "static/chunks/117-8b46597f7ffbbb99.js",
+      "static/chunks/main-app-bd28d7e1fc195edc.js",
+      "static/chunks/app/privacy-policy/page-ec8918fc5a957fdc.js"
+    ],
+    "/category/[slug]/page": [
+      "static/chunks/webpack-c8a3a8ba398149d2.js",
+      "static/chunks/fd9d1056-c5a681b29951672f.js",
+      "static/chunks/117-8b46597f7ffbbb99.js",
+      "static/chunks/main-app-bd28d7e1fc195edc.js",
+      "static/chunks/837-fa69db7ee60047b2.js",
+      "static/chunks/936-6b35b9d8f4fa134d.js",
+      "static/chunks/app/category/[slug]/page-34addfa169e018c3.js"
+    ],
+    "/return-policy/page": [
+      "static/chunks/webpack-c8a3a8ba398149d2.js",
+      "static/chunks/fd9d1056-c5a681b29951672f.js",
+      "static/chunks/117-8b46597f7ffbbb99.js",
+      "static/chunks/main-app-bd28d7e1fc195edc.js",
+      "static/chunks/app/return-policy/page-bc85436d09a9d1fd.js"
+    ],
+    "/search/page": [
+      "static/chunks/webpack-c8a3a8ba398149d2.js",
+      "static/chunks/fd9d1056-c5a681b29951672f.js",
+      "static/chunks/117-8b46597f7ffbbb99.js",
+      "static/chunks/main-app-bd28d7e1fc195edc.js",
+      "static/chunks/837-fa69db7ee60047b2.js",
+      "static/chunks/936-6b35b9d8f4fa134d.js",
+      "static/chunks/app/search/page-a75c75ecc5dab17d.js"
+    ],
+    "/shop/page": [
+      "static/chunks/webpack-c8a3a8ba398149d2.js",
+      "static/chunks/fd9d1056-c5a681b29951672f.js",
+      "static/chunks/117-8b46597f7ffbbb99.js",
+      "static/chunks/main-app-bd28d7e1fc195edc.js",
+      "static/chunks/837-fa69db7ee60047b2.js",
+      "static/chunks/936-6b35b9d8f4fa134d.js",
+      "static/chunks/631-57f55e4fe7b13400.js",
+      "static/chunks/app/shop/page-cac6a6e5e789c495.js"
+    ],
+    "/sale/page": [
+      "static/chunks/webpack-c8a3a8ba398149d2.js",
+      "static/chunks/fd9d1056-c5a681b29951672f.js",
+      "static/chunks/117-8b46597f7ffbbb99.js",
+      "static/chunks/main-app-bd28d7e1fc195edc.js",
+      "static/chunks/837-fa69db7ee60047b2.js",
+      "static/chunks/936-6b35b9d8f4fa134d.js",
+      "static/chunks/631-57f55e4fe7b13400.js",
+      "static/chunks/app/sale/page-c5e9c4f1b6c149c5.js"
+    ],
+    "/terms-conditions/page": [
+      "static/chunks/webpack-c8a3a8ba398149d2.js",
+      "static/chunks/fd9d1056-c5a681b29951672f.js",
+      "static/chunks/117-8b46597f7ffbbb99.js",
+      "static/chunks/main-app-bd28d7e1fc195edc.js",
+      "static/chunks/app/terms-conditions/page-e563bf3cdea164e5.js"
+    ],
+    "/shipping-policy/page": [
+      "static/chunks/webpack-c8a3a8ba398149d2.js",
+      "static/chunks/fd9d1056-c5a681b29951672f.js",
+      "static/chunks/117-8b46597f7ffbbb99.js",
+      "static/chunks/main-app-bd28d7e1fc195edc.js",
+      "static/chunks/app/shipping-policy/page-2c0dcac41e6aabe8.js"
+    ]
+  }
+}
