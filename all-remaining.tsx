@@ -200,7 +200,6 @@ export default function Providers({ children }: { children: React.ReactNode }) {
 // FILE 4: src/components/layout/Footer.tsx
 // ═══════════════════════════════════════════
 import Link from 'next/link';
-import Image from 'next/image';
 
 const SHOP_LINKS = [
   { label: 'All Products', href: '/shop' },
@@ -224,7 +223,9 @@ const HELP_LINKS = [
 
 const SOCIALS = [
   { label: 'Facebook', href: 'https://www.facebook.com/emartbd.official', color: '#1877f2', icon: 'M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z' },
-  { label: 'WhatsApp', href: 'https://wa.me/8801919797399', color: '#25d366', icon: 'M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.57-.01-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z' },
+  { label: 'Instagram', href: 'https://www.instagram.com/emartbd', color: 'linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)', icon: '' },
+  { label: 'WhatsApp', href: 'https://wa.me/8801919797399', color: '#25d366', icon: 'M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.198-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.37 5.07L2 22l5.06-1.35A9.953 9.953 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2z' },
+  { label: 'Telegram', href: 'https://t.me/emart_official', color: '#2aabee', icon: 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8-1.69 7.96c-.12.57-.45.71-.91.44l-2.52-1.86-1.22 1.17c-.13.13-.25.25-.51.25l.18-2.57 4.65-4.2c.2-.18-.04-.28-.31-.1L7.39 14.6l-2.49-.76c-.56-.17-.57-.56.12-.83l10.38-4c.47-.17.88.11.74.83z' },
 ];
 
 export default function Footer() {
@@ -238,7 +239,9 @@ export default function Footer() {
           {/* Brand Column */}
           <div>
             <Link href="/" className="flex items-center gap-3 mb-4">
-              <Image src="/images/logo.png" alt="Emart" width={44} height={44} className="rounded-xl" />
+              <div className="w-11 h-11 bg-gradient-to-br from-[#e8197a] to-[#c01264] rounded-xl flex items-center justify-center flex-shrink-0">
+                <span className="text-white font-black text-xl">E</span>
+              </div>
               <div>
                 <div className="font-extrabold text-[#1a1a2e]">Emart Skincare</div>
                 <div className="text-[#e8197a] text-xs font-bold tracking-widest uppercase">Bangladesh</div>
@@ -255,12 +258,18 @@ export default function Footer() {
                   href={s.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-full flex items-center justify-center text-white"
+                  className="w-9 h-9 rounded-full flex items-center justify-center text-white hover:opacity-80 transition-opacity"
                   style={{ background: s.color }}
                 >
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="white">
-                    <path d={s.icon} />
-                  </svg>
+                  {s.label === 'Instagram' ? (
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                    </svg>
+                  ) : (
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="white">
+                      <path d={s.icon} />
+                    </svg>
+                  )}
                 </a>
               ))}
             </div>
@@ -324,9 +333,17 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4">
           <div className="flex flex-wrap items-center gap-2">
             <span className="text-xs font-bold text-gray-400 uppercase tracking-wide">We Accept:</span>
-            {['bKash', 'Nagad', 'Rocket', 'VISA', 'Mastercard', 'COD'].map((p) => (
-              <span key={p} className="text-xs font-bold border border-gray-300 rounded px-2 py-1 bg-white">
-                {p}
+            {[
+              { l: 'bKash',      c: '#e2136e', bg: '#fde8f0' },
+              { l: 'Nagad',      c: '#f26522', bg: '#fff3ed' },
+              { l: 'Rocket',     c: '#8b3fc8', bg: '#f3eeff' },
+              { l: 'VISA',       c: '#1a1f71', bg: '#eef0fb' },
+              { l: 'Mastercard', c: '#eb001b', bg: '#ffeef0' },
+              { l: '💵 COD',    c: '#16a34a', bg: '#f0fdf4' },
+            ].map((p) => (
+              <span key={p.l} className="text-xs font-bold px-2.5 py-1 rounded-md border"
+                style={{ color: p.c, borderColor: p.c, background: p.bg }}>
+                {p.l}
               </span>
             ))}
           </div>
