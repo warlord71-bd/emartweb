@@ -1,0 +1,142 @@
+'use client';
+// src/components/layout/Header.tsx
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { useRouter } from 'next/navigation';
+import { ShoppingCart, Search, User, Menu, X, Heart } from 'lucide-react';
+import { useCartStore } from '@/store/cartStore';
+
+const NAV = [
+  { label:'Shop', href:'/shop' },
+  { label:'Face Care', href:'/category/face-care' },
+  { label:'Sunscreen', href:'/category/sunscreen' },
+  { label:'Serum & Toner', href:'/category/serum-toner' },
+  { label:'Moisturizer', href:'/category/moisturizer' },
+  { label:'Hair Care', href:'/category/hair-care' },
+  { label:'🔥 Sale', href:'/sale', cls:'text-[#e8197a] font-semibold' },
+  { label:'✨ New', href:'/new-arrivals', cls:'text-[#e8197a] font-semibold' },
+];
+
+export default function Header() {
+  const router = useRouter();
+  const [q, setQ] = useState('');
+  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const totalItems = useCartStore(s=>s.totalItems());
+  const toggleCart = useCartStore(s=>s.toggleCart);
+
+  useEffect(()=>{ const h=()=>setScrolled(window.scrollY>10); window.addEventListener('scroll',h); return()=>window.removeEventListener('scroll',h); },[]);
+
+  const handleSearch = (e:React.FormEvent) => {
+    e.preventDefault();
+    if(q.trim()){ router.push(`/search?q=${encodeURIComponent(q.trim())}`); setQ(''); setOpen(false); }
+  };
+
+  return (
+    <>
+      {/* Announcement Bar */}
+      <div className="bg-[#1a1a2e] text-gray-300 text-xs py-2 px-4 text-center hidden sm:block">
+        🚚 Free Delivery above <strong className="text-white">৳3,000</strong> &nbsp;|&nbsp;
+        <span className="bg-[#e8197a] text-white px-2 py-0.5 rounded-full text-xs font-semibold">✓ 100% Authentic</span> &nbsp;|&nbsp;
+        COD Nationwide &nbsp;|&nbsp;
+        <Link href="/track-order" className="hover:text-[#e8197a] transition-colors">📦 Track Order</Link>
+      </div>
+
+      {/* Main Header */}
+      <header className={`sticky top-0 z-50 bg-white border-b border-gray-100 ${scrolled?'shadow-md':'shadow-sm'} transition-shadow`}>
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="flex items-center gap-3 h-16">
+
+            {/* Logo */}
+            <Link href="/" className="flex items-center gap-2 flex-shrink-0">
+              <div className="w-10 h-10 bg-gradient-to-br from-[#e8197a] to-[#c01264] rounded-xl flex items-center justify-center">
+                <span className="text-white font-black text-lg">E</span>
+              </div>
+              <div className="hidden sm:block">
+                <div className="font-extrabold text-[#1a1a2e] text-base leading-tight">Emart Skincare</div>
+                <div className="text-[#e8197a] text-[9px] font-bold tracking-widest uppercase">Bangladesh</div>
+              </div>
+            </Link>
+
+            {/* Search */}
+            <form onSubmit={handleSearch} className="flex-1 max-w-xl mx-auto">
+              <div className="relative">
+                <input type="search" value={q} onChange={e=>setQ(e.target.value)}
+                  placeholder="Search skincare... e.g COSRX, Sunscreen, Serum"
+                  className="w-full border border-gray-200 rounded-full py-2.5 pl-4 pr-12 text-sm
+                             focus:outline-none focus:border-[#e8197a] focus:ring-2 focus:ring-[#e8197a]/20"/>
+                <button type="submit" className="absolute right-1 top-1/2 -translate-y-1/2 bg-[#e8197a] text-white p-2 rounded-full hover:bg-[#c01264]">
+                  <Search size={15}/>
+                </button>
+              </div>
+            </form>
+
+            {/* Actions */}
+            <div className="flex items-center gap-1">
+              <Link href="/account" className="p-2 text-gray-600 hover:text-[#e8197a] hidden sm:flex items-center gap-1">
+                <User size={20}/><span className="text-xs hidden md:block">Account</span>
+              </Link>
+              <Link href="/wishlist" className="p-2 text-gray-600 hover:text-[#e8197a] hidden sm:block">
+                <Heart size={20}/>
+              </Link>
+              <button onClick={toggleCart} className="relative p-2 text-gray-600 hover:text-[#e8197a]">
+                <ShoppingCart size={22}/>
+                {totalItems>0&&(
+                  <span className="absolute -top-1 -right-1 bg-[#e8197a] text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center">
+                    {totalItems>99?'99+':totalItems}
+                  </span>
+                )}
+              </button>
+              <button onClick={()=>setOpen(!open)} className="p-2 text-gray-600 lg:hidden">
+                {open?<X size={22}/>:<Menu size={22}/>}
+              </button>
+            </div>
+          </div>
+
+          {/* Desktop Nav */}
+          <nav className="hidden lg:flex items-center gap-5 py-2 border-t border-gray-50 overflow-x-auto">
+            {NAV.map(l=>(
+              <Link key={l.href} href={l.href}
+                className={`text-sm font-medium text-gray-600 hover:text-[#e8197a] whitespace-nowrap transition-colors ${l.cls||''}`}>
+                {l.label}
+              </Link>
+            ))}
+          </nav>
+        </div>
+
+        {/* Mobile Menu */}
+        {open&&(
+          <div className="lg:hidden bg-white border-t border-gray-100 px-4 py-3 animate-fade-in">
+            {NAV.map(l=>(
+              <Link key={l.href} href={l.href} onClick={()=>setOpen(false)}
+                className={`block py-2.5 px-3 text-sm font-medium text-gray-700 hover:bg-[#fce7f0] hover:text-[#e8197a] rounded-lg ${l.cls||''}`}>
+                {l.label}
+              </Link>
+            ))}
+            <Link href="/account" onClick={()=>setOpen(false)} className="block py-2.5 px-3 text-sm font-medium text-gray-700 hover:bg-[#fce7f0] hover:text-[#e8197a] rounded-lg">👤 My Account</Link>
+          </div>
+        )}
+      </header>
+
+      {/* Mobile Bottom Nav */}
+      <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 flex items-center justify-around py-2 z-50 lg:hidden shadow-lg">
+        {[
+          {href:'/',icon:<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>,label:'Home'},
+          {href:'/shop',icon:<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>,label:'Shop'},
+          {href:'/wishlist',icon:<Heart size={22}/>,label:'Wishlist'},
+          {href:'/account',icon:<User size={22}/>,label:'Account'},
+        ].map(({href,icon,label})=>(
+          <Link key={href} href={href} className="flex flex-col items-center gap-0.5 text-gray-500 hover:text-[#e8197a] transition-colors">
+            {icon}<span className="text-[10px] font-medium">{label}</span>
+          </Link>
+        ))}
+        <button onClick={toggleCart} className="flex flex-col items-center gap-0.5 text-gray-500 hover:text-[#e8197a] relative">
+          <ShoppingCart size={22}/>
+          {totalItems>0&&<span className="absolute -top-1 right-1 bg-[#e8197a] text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">{totalItems}</span>}
+          <span className="text-[10px] font-medium">Cart</span>
+        </button>
+      </nav>
+    </>
+  );
+}
