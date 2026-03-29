@@ -3,7 +3,6 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { ShoppingCart, Search, User, Menu, X, Heart } from 'lucide-react';
 import { useCartStore } from '@/store/cartStore';
@@ -62,14 +61,9 @@ export default function Header() {
 
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2 flex-shrink-0">
-              <Image
-                src="/images/logo.png"
-                alt="Emart Skincare Bangladesh"
-                width={44}
-                height={44}
-                className="rounded-xl"
-                priority
-              />
+              <div className="w-11 h-11 bg-gradient-to-br from-[#e8197a] to-[#c01264] rounded-xl flex items-center justify-center flex-shrink-0">
+                <span className="text-white font-black text-xl">E</span>
+              </div>
               <div className="hidden sm:block">
                 <div className="font-extrabold text-[#1a1a2e] text-base leading-tight">
                   Emart Skincare

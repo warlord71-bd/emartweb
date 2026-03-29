@@ -61,13 +61,19 @@ export default function ProductCard({ product }: Props) {
       <Link href={`/shop/${product.slug}`}>
         {/* Image */}
         <div className="product-img-wrap">
-          <Image
-            src={product.images[0]?.src || '/images/placeholder.jpg'}
-            alt={product.images[0]?.alt || product.name}
-            fill
-            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-            className="object-cover object-center group-hover:scale-105 transition-transform duration-300"
-          />
+          {product.images[0]?.src ? (
+            <Image
+              src={product.images[0].src}
+              alt={product.images[0]?.alt || product.name}
+              fill
+              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+              className="object-cover object-center group-hover:scale-105 transition-transform duration-300"
+            />
+          ) : (
+            <div className="w-full h-full flex items-center justify-center bg-[#fce7f0]">
+              <span className="text-5xl">🧴</span>
+            </div>
+          )}
         </div>
 
         {/* Info */}
