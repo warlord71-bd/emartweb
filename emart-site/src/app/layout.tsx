@@ -8,7 +8,7 @@ import { Toaster } from 'react-hot-toast';
 import Providers from './providers';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://e-mart.com.bd'),
+  metadataBase: new URL('https://e-mart.com.bd/web'),
   title: { default:'Emart Skincare Bangladesh — Korean & Japanese Beauty', template:'%s | Emart Skincare' },
   description:"Bangladesh's #1 destination for authentic Korean & Japanese skincare. 100% genuine, COD available.",
   keywords:['Korean skincare Bangladesh','Japanese skincare','K-beauty Dhaka','COSRX Bangladesh','skin care price Bangladesh'],

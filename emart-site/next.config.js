@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  basePath: '/web',
+  assetPrefix: '/web',
   images: {
     remotePatterns: [
       { protocol: 'https', hostname: 'e-mart.com.bd', pathname: '/wp-content/uploads/**' },
