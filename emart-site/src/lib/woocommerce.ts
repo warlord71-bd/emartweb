@@ -42,7 +42,10 @@ export interface ProductsParams {
 
 export async function getProducts(params:ProductsParams={}):Promise<{products:WooProduct[];total:number;totalPages:number}> {
   try {
-    const r = await wooClient.get('/products',{params:{per_page:20,status:'publish',...params}});
+    const {on_sale,...rest}=params;
+    const finalParams:Record<string,unknown>={per_page:20,status:'publish',...rest};
+    if(on_sale===true) finalParams.on_sale=true; // only send when true — false would filter OUT sale items
+    const r = await wooClient.get('/products',{params:finalParams});
     return {products:r.data,total:parseInt(r.headers['x-wp-total']||'0'),totalPages:parseInt(r.headers['x-wp-totalpages']||'0')};
   } catch { return {products:[],total:0,totalPages:0}; }
 }

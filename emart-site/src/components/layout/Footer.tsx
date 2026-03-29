@@ -76,8 +76,8 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-2 flex-wrap">
             <span className="text-xs font-bold text-gray-400 uppercase">We Accept:</span>
-            {[{l:'bKash',c:'#e2136e'},{l:'Nagad',c:'#f26522'},{l:'Rocket',c:'#8b3fc8'},{l:'VISA',c:'#1a1f71'},{l:'Mastercard',c:'#eb001b'},{l:'💵 COD',c:'#16a34a'}].map(p=>(
-              <span key={p.l} className="text-xs font-bold px-2 py-1 rounded border bg-white" style={{color:p.c,borderColor:p.c}}>{p.l}</span>
+            {['bkash','nagad','rocket','visa','mastercard','cod'].map(icon=>(
+              <img key={icon} src={`/images/payment/${icon}.svg`} alt={icon} style={{height:'26px',borderRadius:'4px',boxShadow:'0 1px 3px rgba(0,0,0,0.12)'}}/>
             ))}
           </div>
           <div className="flex gap-3 text-xs text-gray-400">

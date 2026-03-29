@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 32" width="80" height="32">
+  <rect width="80" height="32" rx="5" fill="#1A1F71"/>
+  <rect x="0" y="27" width="80" height="5" rx="0" fill="#F7B600"/>
+  <text x="40" y="20" font-family="Arial,sans-serif" font-size="16" font-weight="900" fill="white" text-anchor="middle" letter-spacing="2" font-style="italic">VISA</text>
+</svg>
