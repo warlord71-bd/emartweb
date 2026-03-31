@@ -7,6 +7,10 @@ const WOO_URL = process.env.NEXT_PUBLIC_WOO_URL || 'https://e-mart.com.bd';
 const CONSUMER_KEY = process.env.WOO_CONSUMER_KEY || '';
 const CONSUMER_SECRET = process.env.WOO_CONSUMER_SECRET || '';
 
+// Debug: log API configuration on startup
+console.log('[WOOCOMMERCE] API URL:', `${WOO_URL}/wp-json/wc/v3`);
+console.log('[WOOCOMMERCE] Consumer key set:', !!CONSUMER_KEY, '| Secret set:', !!CONSUMER_SECRET);
+
 // ── API Client ──
 const wooClient = axios.create({
   baseURL: `${WOO_URL}/wp-json/wc/v3`,
@@ -150,8 +154,8 @@ export async function getProducts(params: ProductsParams = {}): Promise<{
       total: parseInt(response.headers['x-wp-total'] || '0'),
       totalPages: parseInt(response.headers['x-wp-totalpages'] || '0'),
     };
-  } catch (error) {
-    console.error('getProducts error:', error);
+  } catch (error: any) {
+    console.error('[WOOCOMMERCE] getProducts error:', error?.response?.status, error?.response?.data || error?.message);
     return { products: [], total: 0, totalPages: 0 };
   }
 }

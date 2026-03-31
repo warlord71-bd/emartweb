@@ -41,6 +41,12 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
     getCategories(),
   ]);
 
+  // DEBUG: log first 3 products to verify correct data is being fetched
+  console.log('[SHOP DEBUG] Total products fetched:', total);
+  products.slice(0, 3).forEach((p, i) => {
+    console.log(`[SHOP DEBUG] Product[${i}]: name="${p.name}", image="${p.images[0]?.src || 'NO IMAGE'}"`);
+  });
+
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
       {/* Header */}
