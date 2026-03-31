@@ -84,3 +84,21 @@ export function getDiscountPercent(regular:string,sale:string):number {
   return Math.round(((r-s)/r)*100);
 }
 export function isInStock(p:WooProduct):boolean { return p.stock_status==='instock'&&p.purchasable; }
+export function decodeHtml(str:string):string {
+  return str
+    .replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>')
+    .replace(/&quot;/g,'"').replace(/&#039;/g,"'").replace(/&nbsp;/g,' ')
+    .replace(/&#(\d+);/g,(_,c)=>String.fromCharCode(parseInt(c,10)))
+    .replace(/&[a-zA-Z]+;/g,'');
+}
+/** Build WooCommerce checkout URL for a single product */
+export function wooCheckoutUrl(productId:number,qty=1):string {
+  return `https://e-mart.com.bd/checkout/?add-to-cart=${productId}&quantity=${qty}`;
+}
+/** Build WooCommerce add-to-cart URL for cart with multiple items */
+export function wooCartUrl(items:{id:number;quantity:number}[]):string {
+  if(items.length===1) return `https://e-mart.com.bd/checkout/?add-to-cart=${items[0].id}&quantity=${items[0].quantity}`;
+  // For multiple items, redirect to checkout — customer adds via WooCommerce or we use the first item
+  const params=items.map(i=>`add-to-cart=${i.id}&quantity=${i.quantity}`).join('&');
+  return `https://e-mart.com.bd/checkout/?${params}`;
+}

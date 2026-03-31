@@ -3,9 +3,9 @@
 import { useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { X, Plus, Minus, ShoppingBag, Trash2 } from 'lucide-react';
+import { X, Plus, Minus, ShoppingBag, Trash2, Zap } from 'lucide-react';
 import { useCartStore } from '@/store/cartStore';
-import { formatPrice } from '@/lib/woocommerce';
+import { formatPrice, decodeHtml, wooCartUrl } from '@/lib/woocommerce';
 
 export default function CartDrawer() {
   const { items, isOpen, closeCart, removeItem, updateQuantity, totalItems, totalPrice } = useCartStore();
@@ -48,7 +48,7 @@ export default function CartDrawer() {
                   </Link>
                   <div className="flex-1 min-w-0">
                     <Link href={`/shop/${item.slug}`} onClick={closeCart} className="text-sm font-medium text-gray-800 line-clamp-2 hover:text-[#e8197a]">
-                      {item.name}
+                      {decodeHtml(item.name)}
                     </Link>
                     <div className="text-[#e8197a] font-bold text-sm mt-1">{formatPrice(item.price)}</div>
                     <div className="flex items-center gap-2 mt-2">
@@ -72,12 +72,22 @@ export default function CartDrawer() {
                 Add <strong className="text-[#e8197a]">{formatPrice(String(3000-totalPrice()))}</strong> more for free delivery 🚚
               </div>
             )}
-            <div className="flex justify-between items-center mb-4">
+            <div className="flex justify-between items-center mb-3">
               <span className="font-semibold text-gray-700">Subtotal</span>
               <span className="font-bold text-xl text-[#e8197a]">{formatPrice(String(totalPrice()))}</span>
             </div>
-            <Link href="/checkout" onClick={closeCart} className="w-full btn-primary text-center block">Proceed to Checkout →</Link>
-            <Link href="/cart" onClick={closeCart} className="w-full text-center block mt-2 text-sm text-gray-500 hover:text-[#e8197a]">View Full Cart</Link>
+            <Link href="/checkout" onClick={closeCart} className="w-full btn-primary text-center block">
+              Proceed to Checkout →
+            </Link>
+            <a href={wooCartUrl(items.map(i=>({id:i.id,quantity:i.quantity})))}
+              className="w-full flex items-center justify-center gap-1.5 mt-2 border-2 border-[#e8197a]
+                         text-[#e8197a] text-sm font-semibold py-2.5 rounded-xl hover:bg-[#e8197a] hover:text-white transition-all">
+              <Zap size={14}/>⚡ Express Checkout
+            </a>
+            <Link href="/cart" onClick={closeCart}
+              className="w-full text-center block mt-2 text-sm text-gray-500 hover:text-[#e8197a]">
+              View Full Cart
+            </Link>
           </div>
         )}
       </div>
