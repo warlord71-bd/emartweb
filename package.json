@@ -6,7 +6,10 @@
     "dev": "next dev -p 3000",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "preview": "next build && next start -p 3000",
+    "setup:env": "[ -f .env.example ] && cp --update=none .env.example .env.local || true",
+    "check:all": "./scripts/check-all.sh"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.28.0",
